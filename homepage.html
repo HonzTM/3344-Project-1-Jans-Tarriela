@@ -70,6 +70,24 @@
             }
         }
     ]`;
+
+    const destinations = JSON.parse(destinationsData);
+    const destinationsContainer = document.getElementById("destinations");
+    destinations.forEach(destination => {
+        const destCard = document.createElement("div");
+        destCard.classList.add("destination-card");
+        destCard.innerHTML = `
+            <img src="${destination.image}" alt="${destination.name}">
+           <h2>${destination.name}</h2>
+           <p>${destination.description}</p>
+           <button onclick="openDetails(${destination.id})">View Details</button>
+        `;
+        destinationsContainer.appendChild(destCard);
+    });
+
+    function openDetails(id) {
+        //To be added later
+    }
     
     </script>
 </body>
