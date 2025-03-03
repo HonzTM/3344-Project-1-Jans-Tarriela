@@ -3,9 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Travel Website</title>
 </head>
 <body>
+    <header>
+        <h1> Travel Destination Central! </h1>
+    </header>
+    <main>
+        <div id="destinations"> </div>
+    </main>
+
+    <script>
+        const destinationsData = `[
+        {
+            "id": 1,
+            "name": "Manila, Philippines",
+            "image": "https://cdn.britannica.com/81/196781-050-CA29F2C8/Manila.jpg",
+            "description": "The pearl of the Orient, and a primary showcase of the culture of the Philippines.",
+            "details": {
+                "long_description": "Manila, the capital of the Philippines, is the main hub of Philippines' activity, whether that be economic or social. Explore the amazing cuisine or the long history/culture of the Philippines here!",
+                "itinerary": [
+                    "Day 1: Arrive in Manila, explore the National Museum, and learn about Filipino culture/history.",
+                    "Day 2: Visit Binondo, Manila, home of the oldest Chinatown and eat to your heart's content.",
+                    "Day 3: Check out Makati, Manila and BGC to get a taste of city life in the Philippines. The later at night, the better."
+                ],
+                "location": {
+                    "latitude": 14.5995,
+                    "longitude": 120.9842
+                }
+            }
+        },
+        {
+            "id": 2,
+            "name": "London, England",
+            "image": "https://cdn.europosters.eu/image/1300/posters/london-england-i3189.jpg",
+            "description": "Known as the Square Mile, this is a city of vast architecture and history, being the biggest in the United Kingdom.",
+            "details": {
+                "long_description": "London is a city known for its art, history, and politics, but also for its rich variety of museums, shops, restaurants, and the vibrant sports culture present here.",
+                "itinerary": [
+                    "Day 1: Ride a double decker bus and visit the Big Ben",
+                    "Day 2: Get a great overview of the entire city by riding the London Eye",
+                    "Day 3: Take some pictures in front of Buckingham Palace, taking London's famous transportation system"
+                ],
+                "location": {
+                    "latitude": 51.5072,
+                    "longitude": 0.1276
+                }
+            }
+        },
+        {
+            "id": 3,
+            "name": "Buenos Aires, Argentina",
+            "image": "https://cdn.britannica.com/63/188963-050-2C94FEC2/Night-view-obelisk-Buenos-Aires.jpg",
+            "description": "A city with a bustling nightlife, modern and creative energy, and friendly hosts",
+            "details": {
+                "long_description": "Buenos Aires, responsible for the birth of Tango, is a location that never sleeps, with places like traditional taverns and big clubs to fit any niche possible",
+                "itinerary": [
+                    "Day 1: Visit the neighborhood of Palermo with very nice restaurants and access to public transit",
+                    "Day 2: Take a train to Tigre for an activity-packed day trip",
+                    "Day 3: Stop by the La Boca area to see the lovely buildings, murals, and watch Tango"
+                ],
+                "location": {
+                    "latitude": 34.6037,
+                    "longitude": 58.3816
+                }
+            }
+        }
+    ]`;
     
+    </script>
 </body>
 </html>
