@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Destination</title>
 </head>
 <body>
+    <h2 id="destination-title"></h2>
+    <img id="destination-image"/>
+    <p id="destination-description"></p>
+
     <script>
         const parameters = new URLSearchParams(window.location.search);
         const destID = parseInt(parameters.get("id")); // Getting and converting ID
@@ -67,6 +71,12 @@
             }
         }
     ]`;
+        const destinations = JSON.parse(destinationsData);
+        const specificDestination = destinations.find(dest => dest.id == destID); // Find matching ID
+
+        document.getElementById("destination-title").textContent = specificDestination.name;
+        document.getElementById("destination-image").src = specificDestination.image;
+        document.getElementById("destination-description").textContent = specificDestination.details.long_description;
     </script>
 </body>
 </html>
