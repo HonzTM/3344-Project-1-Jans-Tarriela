@@ -18,7 +18,7 @@
     <h3> Map Location </h3>
     <div id="map" style="height: 300px; width: 100%;"></div>
 
-    <div><form id="booking form">
+    <div><form id="booking-form">
         <label for="destination">Destination</label>
         <input type="text" id="destination" readonly>
 
@@ -28,11 +28,11 @@
         <label for="email">Email</label>
         <input type="email" id="email" required>
         
-        <label for="travelers">Number of Travelers</label>
-        <input type="number" id="travelers" min="1" required>
-
-        <label for="travel date">Travel Date</label>
-        <input type="date" id="travel date" required>
+        <label for="num-travelers">Number of Travelers</label>
+        <input type="number" id="num-travelers" min="1" required>
+        
+        <label for="travel-date">Travel Date</label>
+        <input type="date" id="travel-date" required>        
 
         <button type="submit">Book Tour</button>
     </form></div>
@@ -121,6 +121,39 @@
         L.marker([latitude, longitude]).addTo(map)
             .bindPopup(`<b>${specificDestination.name}</b>`)
             .openPopup();
+        
+            function validateForm(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const travelDate = document.getElementById("travel-date").value.trim();
+            const numTravelers = document.getElementById("num-travelers").value.trim();
+
+            const today = new Date();
+            const selectedDate = new Date(travelDate);
+
+            if (!name || !email || !travelDate || !numTravelers) {
+                alert("Please fill out all of the required fields.");
+                return;
+            }
+
+            if (selectedDate < today) {
+                alert("Travel date must be in the future.");
+                return;
+            }
+
+            if (parseInt(numTravelers) < 1) {
+                alert("Number of travelers must be at least 1.");
+                return;
+            }
+
+            console.log("Booking Details:", { name, email, travelDate, numTravelers });
+            alert("Tour Booked!");
+            document.getElementById("booking-form").reset();
+        }
+        document.getElementById("booking-form").addEventListener("submit", validateForm);
+
     </script>
 </body>
 </html>
