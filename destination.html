@@ -10,6 +10,9 @@
     <img id="destination-image"/>
     <p id="destination-description"></p>
 
+    <h3>Itinerary</h3>
+    <ul id="itinerary-list">
+
     <script>
         const parameters = new URLSearchParams(window.location.search);
         const destID = parseInt(parameters.get("id")); // Getting and converting ID
@@ -77,6 +80,13 @@
         document.getElementById("destination-title").textContent = specificDestination.name;
         document.getElementById("destination-image").src = specificDestination.image;
         document.getElementById("destination-description").textContent = specificDestination.details.long_description;
+
+        const itineraryList = document.getElementById("itinerary-list");
+        specificDestination.details.itinerary.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = item;
+            itineraryList.appendChild(listItem);
+        })
     </script>
 </body>
 </html>
