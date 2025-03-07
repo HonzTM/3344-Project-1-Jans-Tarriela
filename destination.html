@@ -6,36 +6,120 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <title>Destination</title>
-</head>
+
+    <style>
+        body {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 30px;
+            flex-wrap: wrap;
+        }
+
+        .list {
+            background-color: lightgreen;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list h3 {
+            text-align: center;
+        }
+
+        .map-display {
+            background-color: lightgreen;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .form {
+            background-color: lightgreen;
+            border-radius: 10px;
+            width: 400px;
+            height: 400px;
+            padding: 20px;
+            width: 30%;
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form h3 {
+            text-align: center;
+        }
+
+        input, textarea {
+            width: 95%;
+            padding: 10px;
+        }
+
+        h2 {
+            display: flex;
+            justify-content: center;
+        }
+
+        
+    </style>
+</head> 
 <body>
     <h2 id="destination-title"></h2>
-    <img id="destination-image"/>
-    <p id="destination-description"></p>
+    <div class="container">
+        <img id="destination-image"/>
+        <p id="destination-description"></p>
+    </div>
+    <div class="list">
+        <h3>Itinerary</h3>
+        <div><ul id="itinerary-list"></ul></div>
+    </div>
+    <div class="map-display">
+        <h3> Map Location </h3>
+        <div id="map" style="height: 350px; width: 100%;"></div>
+    </div>
+    <div class="form">
+        <h3>Booking Form</h3>
+        <form id="booking-form">
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" readonly>
 
-    <h3>Itinerary</h3>
-    <div><ul id="itinerary-list"></ul></div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" required>
 
-    <h3> Map Location </h3>
-    <div id="map" style="height: 300px; width: 100%;"></div>
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+            
+            <label for="num-travelers">Number of Travelers</label>
+            <input type="number" id="num-travelers" min="1" required>
+            
+            <label for="travel-date">Travel Date</label>
+            <input type="date" id="travel-date" required>        
 
-    <div><form id="booking-form">
-        <label for="destination">Destination</label>
-        <input type="text" id="destination" readonly>
-
-        <label for="name">Full Name</label>
-        <input type="text" id="name" required>
-
-        <label for="email">Email</label>
-        <input type="email" id="email" required>
-        
-        <label for="num-travelers">Number of Travelers</label>
-        <input type="number" id="num-travelers" min="1" required>
-        
-        <label for="travel-date">Travel Date</label>
-        <input type="date" id="travel-date" required>        
-
-        <button type="submit">Book Tour</button>
-    </form></div>
+            <button type="submit">Book Tour</button>
+        </form>
+    </div>
 
     <script>
         const parameters = new URLSearchParams(window.location.search);
@@ -92,8 +176,8 @@
                     "Day 3: Stop by the La Boca area to see the lovely buildings, murals, and watch Tango"
                 ],
                 "location": {
-                    "latitude": 34.6037,
-                    "longitude": 58.3816
+                    "latitude": -34.6037,
+                    "longitude": -58.3816
                 }
             }
         }
