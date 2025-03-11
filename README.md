@@ -1,5 +1,3 @@
-This is the start of the README file
-
 Project Description
 
   For this project, we were tasked with an assignment to create a travel destination website where the user can select from a small assortment of "destination cards", each a different location. When the user clicks on one of the travel destination cards, they will be taken to another page for that location/destination in particular. Inside each detailed travel destination card will include an enlarged picture of the preview that was seen when the user could see all destination options on the homepage, an extended/alternate description, as well as three main sections: One section being a recommended itinerary for what the user should do at that particular destination, another showing the destination on a map imported from the Leaflet library, and a third section acting as a booking form for if the user would like to travel to the destination. 
@@ -10,7 +8,7 @@ Functionality
 
 Languages and Tools Used
 
-  - HTTP
+  - HTML
   - JavaScript
   - JSON Strings
   - Leaflet Library (for the map)
