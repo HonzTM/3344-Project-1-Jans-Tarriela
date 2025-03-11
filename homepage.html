@@ -31,6 +31,7 @@
             text-align: center;
             text-decoration: underline;
             padding: 15px;
+            margin-bottom: 10px;
             font-size: 24px;
             border-radius: 10px;
             max-width: 1300px;
@@ -100,6 +101,9 @@
     <header>
         <h1> Travel Destination Central! </h1>
     </header>
+
+    <input type="text" id="search-bar" placeholder="Search for a specific place" onkeyup="filter()">
+
     <main>
         <div id="destinations"> </div><br>
     </main>
@@ -169,7 +173,7 @@
         destCard.classList.add("card");
         destCard.innerHTML = `
             <img src="${destination.image}" alt="${destination.name}">
-           <h2>${destination.name}</h2>
+           <h2 class="destination-title">${destination.name}</h2>
            <p>${destination.description}</p>
            <button onclick="openDetails(${destination.id})">View Details</button>
         `;
@@ -178,6 +182,20 @@
 
     function openDetails(id) {
         window.location.href = `destination.html?id=${id}`
+    }
+
+    function filter() {
+        let input = document.getElementById("search-bar").value.toLowerCase();
+        let cards = document.querySelectorAll(".card");
+
+        cards.forEach(card => {
+            let title = card.querySelector(".destination-title").textContent.toLowerCase();
+            if (title.includes(input)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
     }
     
     </script>
